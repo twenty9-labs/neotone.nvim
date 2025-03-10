@@ -2,8 +2,6 @@
 
 Tune your Neovim to the perfect tone—light or dark, system-synced or manual.
 
-![NeoTone Demo](https://via.placeholder.com/600x200.png?text=NeoTone+Demo)
-
 NeoTone is a lightweight Neovim plugin that switches between light and dark themes, either by syncing with your system appearance (macOS supported) or via manual configuration. In art, "tone" refers to how light or dark a color is—NeoTone brings that concept to your editor.
 
 ## Features
