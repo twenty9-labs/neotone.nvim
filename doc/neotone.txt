@@ -1,0 +1,28 @@
+*neotone.txt*  NeoTone: Tune your Neovim to the perfect tone
+
+NeoTone is a plugin to switch between light and dark themes,
+either manually or by syncing with your system appearance (macOS supported).
+
+==============================================================================
+USAGE                                              *neotone-usage*
+
+Add to your Neovim config:
+    require("neotone").setup({
+        mode = "dark", -- "system", "dark", or "light"
+        themes = {
+            dark = "name-of-dark-theme",
+            light = "name-of-light-theme",
+        },
+    })
+
+Reload the script if the appearance changes:
+    :ReloadNeoTone
+
+==============================================================================
+CONFIGURATION                                      *neotone-configuration*
+
+- mode: "system" (default), "dark", or "light"
+- themes.dark: Dark theme name (default: "default")
+- themes.light: Light theme name (default: "default")
+
+vim:tw=78:ts=8:ft=help:norl:
