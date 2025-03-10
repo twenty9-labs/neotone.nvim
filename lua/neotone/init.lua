@@ -1,5 +1,10 @@
 -- NeoTone: A Neovim plugin to switch themes based on system tone or user choice.
--- In art, 'tone' refers to how light or dark a color is—perfect for light/dark themes!
+-- In art, 'tone' refers to how light or dark a color is.
+
+---@class NeoToneConfig
+---@field mode? "system" | "dark" | "light" Mode to use: system-sync, dark, or light
+---@field themes? { dark: string, light: string } Themes for dark and light modes
+
 local defaults = {
 	mode = "system", -- "system", "dark", or "light"
 	themes = {
@@ -33,6 +38,8 @@ local function setThemeBasedOnSystem()
 	end
 end
 
+-- Public setup function to initialize NeoTone
+---@param user_config? NeoToneConfig Configuration table to override defaults
 local function setup(user_config)
 	config = vim.tbl_deep_extend("force", defaults, user_config or {})
 	if not config.themes.dark or not config.themes.light then
