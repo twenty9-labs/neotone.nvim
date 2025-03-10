@@ -20,7 +20,7 @@ local function getAppleInterfaceStyle()
 	return vim.trim(result):lower()
 end
 
-local function setThemeBasedOnSystem()
+local function applyTheme()
 	local mode = config.mode
 	if mode == "system" then
 		mode = getAppleInterfaceStyle()
@@ -39,23 +39,23 @@ local function setThemeBasedOnSystem()
 end
 
 -- Public setup function to initialize NeoTone
----@param user_config? NeoToneConfig Configuration table to override defaults
-local function setup(user_config)
-	config = vim.tbl_deep_extend("force", defaults, user_config or {})
+---@param userConfig? NeoToneConfig Configuration table to override defaults
+local function setup(userConfig)
+	config = vim.tbl_deep_extend("force", defaults, userConfig or {})
 	if not config.themes.dark or not config.themes.light then
 		error("NeoTone: Theme config missing 'dark' or 'light' key")
 	end
-	setThemeBasedOnSystem()
+	applyTheme()
 end
 
-local function reloadTheme()
-	setThemeBasedOnSystem()
+local function refreshTheme()
+	applyTheme()
 	vim.notify("NeoTone: Theme reloaded", vim.log.levels.INFO)
 end
 
 vim.api.nvim_create_user_command(
 	"ReloadNeoTone",
-	reloadTheme,
+	refreshTheme,
 	{ desc = "Reload the NeoTone script if appearance has changed" }
 )
 
