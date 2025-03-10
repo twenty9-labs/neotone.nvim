@@ -13,27 +13,47 @@ NeoTone is a lightweight Neovim plugin that switches between light and dark them
 ## Installation
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
-`{ "twenty9-labs/neotone.nvim", config = function() require("neotone").setup() end }`
+```lua
+{
+  "twenty9-labs/neotone.nvim",
+  config = function()
+    require("neotone").setup()
+  end
+}
+```
 
 ### [packer.nvim](https://github.com/wbthomason/packer.nvim)
-`use { "twenty9-labs/neotone.nvim", config = function() require("neotone").setup() end }`
+```lua 
+use {
+  "twenty9-labs/neotone.nvim",
+  config = function()
+    require("neotone").setup()
+  end
+}
+```
 
-### [vim-plug](https://github.com/junegunn/vim-plug)
-`Plug 'twenty9-labs/neotone.nvim'`  
-Then in your `init.lua`: `require("neotone").setup()`
-
-Run your plugin manager’s install command (e.g., `:Lazy sync`, `:PackerSync`, or `:PlugInstall`).
+Run your plugin manager’s install command (e.g., `:Lazy sync`, `:PackerSync`).
 
 ## Usage
 
 Basic setup with defaults:  
-`require("neotone").setup()`  
+```lua
+require("neotone").setup()
+```  
 *-- Uses "system" mode with "default" (dark) and "default" (light) themes*
 
 Custom configuration:  
-`require("neotone").setup({ mode = "dark", -- Force dark mode themes = { dark = "tokyonight", -- Requires this theme to be installed light = "gruvbox-light", -- Requires this theme to be installed }, })`
+```lua
+require("neotone").setup({
+    mode = "system",
+    themes = {
+        dark = "tokyonight",
+        light = "gruvbox-light",
+    },
+})
+```
 
-Reload the theme anytime:  
+Reload the theme anytime if the appearance has changed while having neovim open:  
 `:ReloadNeoTone`
 
 ## Configuration
