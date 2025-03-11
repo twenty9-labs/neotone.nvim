@@ -16,7 +16,7 @@ local defaults = {
 local config = vim.tbl_deep_extend("force", defaults, {})
 
 local function getAppleInterfaceStyle()
-	local result = vim.fn.system("defaults read -g AppleInterfaceStyle 2>/dev/null || echo Dark")
+	local result = vim.fn.system("defaults read -g AppleInterfaceStyle 2>/dev/null || echo Light")
 	return vim.trim(result):lower()
 end
 
